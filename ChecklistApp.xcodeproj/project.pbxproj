@@ -6,14 +6,77 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A4C112262FBD8E3100427887 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C112252FBD8E3000427887 /* WidgetKit.framework */; };
+		A4C112282FBD8E3100427887 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C112272FBD8E3100427887 /* SwiftUI.framework */; };
+		A4C112372FBD8E3300427887 /* ChecklistWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A4C112232FBD8E3000427887 /* ChecklistWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A4C112352FBD8E3300427887 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4C112082FBD8D9200427887 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4C112222FBD8E3000427887;
+			remoteInfo = ChecklistWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A4C1123C2FBD8E3300427887 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A4C112372FBD8E3300427887 /* ChecklistWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A4C112102FBD8D9200427887 /* ChecklistApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChecklistApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4C112232FBD8E3000427887 /* ChecklistWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ChecklistWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4C112252FBD8E3000427887 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A4C112272FBD8E3100427887 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A4C1123D2FBD8E3D00427887 /* ChecklistWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChecklistWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A4C112382FBD8E3300427887 /* Exceptions for "ChecklistWidget" folder in "ChecklistWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A4C112222FBD8E3000427887 /* ChecklistWidgetExtension */;
+		};
+		A4C112792FBDA06500427887 /* Exceptions for "ChecklistApp" folder in "ChecklistWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/Tag.swift,
+				Models/Task.swift,
+			);
+			target = A4C112222FBD8E3000427887 /* ChecklistWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A4C112122FBD8D9200427887 /* ChecklistApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A4C112792FBDA06500427887 /* Exceptions for "ChecklistApp" folder in "ChecklistWidgetExtension" target */,
+			);
 			path = ChecklistApp;
+			sourceTree = "<group>";
+		};
+		A4C112292FBD8E3100427887 /* ChecklistWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A4C112382FBD8E3300427887 /* Exceptions for "ChecklistWidget" folder in "ChecklistWidgetExtension" target */,
+			);
+			path = ChecklistWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,13 +89,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A4C112202FBD8E3000427887 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4C112282FBD8E3100427887 /* SwiftUI.framework in Frameworks */,
+				A4C112262FBD8E3100427887 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A4C112072FBD8D9200427887 = {
 			isa = PBXGroup;
 			children = (
+				A4C1123D2FBD8E3D00427887 /* ChecklistWidgetExtension.entitlements */,
 				A4C112122FBD8D9200427887 /* ChecklistApp */,
+				A4C112292FBD8E3100427887 /* ChecklistWidget */,
+				A4C112242FBD8E3000427887 /* Frameworks */,
 				A4C112112FBD8D9200427887 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +116,18 @@
 			isa = PBXGroup;
 			children = (
 				A4C112102FBD8D9200427887 /* ChecklistApp.app */,
+				A4C112232FBD8E3000427887 /* ChecklistWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A4C112242FBD8E3000427887 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4C112252FBD8E3000427887 /* WidgetKit.framework */,
+				A4C112272FBD8E3100427887 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +140,12 @@
 				A4C1120C2FBD8D9200427887 /* Sources */,
 				A4C1120D2FBD8D9200427887 /* Frameworks */,
 				A4C1120E2FBD8D9200427887 /* Resources */,
+				A4C1123C2FBD8E3300427887 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A4C112362FBD8E3300427887 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				A4C112122FBD8D9200427887 /* ChecklistApp */,
@@ -69,6 +156,28 @@
 			productName = ChecklistApp;
 			productReference = A4C112102FBD8D9200427887 /* ChecklistApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A4C112222FBD8E3000427887 /* ChecklistWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4C112392FBD8E3300427887 /* Build configuration list for PBXNativeTarget "ChecklistWidgetExtension" */;
+			buildPhases = (
+				A4C1121F2FBD8E3000427887 /* Sources */,
+				A4C112202FBD8E3000427887 /* Frameworks */,
+				A4C112212FBD8E3000427887 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A4C112292FBD8E3100427887 /* ChecklistWidget */,
+			);
+			name = ChecklistWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = ChecklistWidgetExtension;
+			productReference = A4C112232FBD8E3000427887 /* ChecklistWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +190,9 @@
 				LastUpgradeCheck = 2640;
 				TargetAttributes = {
 					A4C1120F2FBD8D9200427887 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+					A4C112222FBD8E3000427887 = {
 						CreatedOnToolsVersion = 26.4.1;
 					};
 				};
@@ -100,12 +212,20 @@
 			projectRoot = "";
 			targets = (
 				A4C1120F2FBD8D9200427887 /* ChecklistApp */,
+				A4C112222FBD8E3000427887 /* ChecklistWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A4C1120E2FBD8D9200427887 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4C112212FBD8E3000427887 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +242,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A4C1121F2FBD8E3000427887 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A4C112362FBD8E3300427887 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4C112222FBD8E3000427887 /* ChecklistWidgetExtension */;
+			targetProxy = A4C112352FBD8E3300427887 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A4C112192FBD8D9400427887 /* Debug */ = {
@@ -250,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChecklistApp/ChecklistApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -259,6 +395,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -282,6 +419,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChecklistApp/ChecklistApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -291,6 +429,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -303,6 +442,74 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A4C1123A2FBD8E3300427887 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ChecklistWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W9YMHSGLWM;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChecklistWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ChecklistWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ivanqi.ChecklistApp.ChecklistWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A4C1123B2FBD8E3300427887 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ChecklistWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W9YMHSGLWM;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChecklistWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ChecklistWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ivanqi.ChecklistApp.ChecklistWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -326,6 +533,15 @@
 			buildConfigurations = (
 				A4C1121C2FBD8D9400427887 /* Debug */,
 				A4C1121D2FBD8D9400427887 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4C112392FBD8E3300427887 /* Build configuration list for PBXNativeTarget "ChecklistWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4C1123A2FBD8E3300427887 /* Debug */,
+				A4C1123B2FBD8E3300427887 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
