@@ -1,78 +1,78 @@
 # Checklist App
 
-A lightweight macOS checklist app that lives in your Menu Bar. No accounts, no sync, no distractions — just a clean place to track what needs to get done.
+一款住在 macOS 菜单栏里的轻量级待办清单应用。无需账号、无需同步、没有多余干扰，专注于记录和完成你的每一件事。
 
-## Features
+## 功能特性
 
-- **Menu Bar First** — lives quietly in your menu bar, shows a badge count of pending tasks at a glance
-- **Tags** — create color-coded tags to organize tasks, filter the list by any tag
-- **Archive** — completed tasks are moved to an archive view, keeping the main list clean
-- **Desktop Widget** — small and medium WidgetKit widgets display pending tasks on your desktop (requires a paid Apple Developer account to share data with the main app via App Groups)
-- **Fully Local** — all data is stored on-device in `~/Library/Application Support/ChecklistApp/checklist.sqlite`, nothing leaves your Mac
+- **菜单栏优先** — 常驻菜单栏，图标实时显示未完成任务数量，随时一键呼出
+- **标签管理** — 创建自定义颜色标签，按标签快速筛选任务
+- **完成归档** — 已完成任务自动移入归档视图，主列表始终保持整洁
+- **桌面小组件** — 支持 small / medium 两种尺寸的 WidgetKit 小组件，桌面直接查看待办并勾选完成（Widget 与主 App 数据共享需付费开发者账号，详见下方说明）
+- **完全本地** — 所有数据存储在本机 `~/Library/Application Support/ChecklistApp/checklist.sqlite`，不联网、不上传
 
-## Requirements
+## 环境要求
 
-- macOS 14 Sonoma or later
-- Xcode 15 or later (to build from source)
+- macOS 14 Sonoma 及以上
+- Xcode 15 及以上（从源码构建时需要）
 
-## Getting Started
+## 快速开始
 
-1. Clone the repo
+1. 克隆仓库
 
 ```bash
 git clone git@github.com:Ivanyanqi/checklist-app.git
 cd checklist-app
 ```
 
-2. Open the project in Xcode
+2. 用 Xcode 打开项目
 
 ```bash
 open ChecklistApp.xcodeproj
 ```
 
-3. Select the `ChecklistApp` scheme, then press **Run** (`⌘R`). The app will appear in your menu bar.
+3. 选择 `ChecklistApp` Scheme，按 **Run**（`⌘R`）运行，App 图标会出现在菜单栏中。
 
-## Project Structure
+## 项目结构
 
 ```
 ChecklistApp/
 ├── ChecklistApp/
-│   ├── ChecklistAppApp.swift       # App entry point, MenuBarExtra + MenuBarLabel
+│   ├── ChecklistAppApp.swift            # App 入口，MenuBarExtra + MenuBarLabel
 │   ├── Models/
-│   │   ├── Task.swift              # SwiftData Task model
-│   │   └── Tag.swift               # SwiftData Tag model
+│   │   ├── Task.swift                   # SwiftData 任务模型
+│   │   └── Tag.swift                    # SwiftData 标签模型
 │   ├── Persistence/
-│   │   └── PersistenceController.swift  # Local SQLite container setup
+│   │   └── PersistenceController.swift  # 本地 SQLite 容器初始化
 │   └── Views/
 │       ├── MenuBarPopover/
-│       │   ├── PopoverView.swift   # Root view with tab switching
-│       │   ├── TaskListView.swift  # Pending task list
-│       │   ├── TaskRowView.swift   # Individual task row
-│       │   ├── AddTaskView.swift   # New task input sheet
-│       │   └── ArchiveView.swift   # Completed task archive
+│       │   ├── PopoverView.swift        # 根视图，Tab 切换待办/归档
+│       │   ├── TaskListView.swift       # 待办任务列表
+│       │   ├── TaskRowView.swift        # 单条任务行
+│       │   ├── AddTaskView.swift        # 新建任务输入面板
+│       │   └── ArchiveView.swift        # 已完成任务归档视图
 │       ├── TagFilter/
-│       │   └── TagFilterView.swift # Tag filter bar
+│       │   └── TagFilterView.swift      # 标签筛选栏
 │       └── TagManager/
-│           └── TagManagerView.swift # Create / delete tags
+│           └── TagManagerView.swift     # 标签创建与删除
 └── ChecklistWidget/
-    ├── ChecklistWidget.swift       # Widget entry view & timeline provider
-    ├── ChecklistWidgetBundle.swift # Widget bundle
-    └── AppIntent.swift             # CompleteTaskIntent + WidgetDataProvider
+    ├── ChecklistWidget.swift            # Widget 视图 & 时间线 Provider
+    ├── ChecklistWidgetBundle.swift      # Widget Bundle
+    └── AppIntent.swift                  # CompleteTaskIntent + WidgetDataProvider
 ```
 
-## Tech Stack
+## 技术栈
 
 | | |
 |---|---|
-| Language | Swift 5.10 |
-| UI | SwiftUI |
-| Persistence | SwiftData (SQLite) |
-| Widget | WidgetKit + AppIntents |
-| Minimum OS | macOS 14 Sonoma |
+| 开发语言 | Swift 5.10 |
+| UI 框架 | SwiftUI |
+| 数据持久化 | SwiftData（SQLite） |
+| 小组件 | WidgetKit + AppIntents |
+| 最低系统版本 | macOS 14 Sonoma |
 
-## Known Limitations
+## 已知限制
 
-The desktop widget currently shows empty data when built with a Personal Team provisioning profile. This is because Personal Team accounts do not support App Groups, which is required to share the SwiftData store between the main app and the widget extension. Upgrading to a paid Apple Developer account and enabling an App Group will allow the widget to read live data from the main app.
+使用个人开发者账号（Personal Team）构建时，桌面小组件暂时无法读取主 App 的数据，显示为空。原因是 Personal Team 不支持 App Groups 功能，而主 App 与 Widget Extension 共享 SwiftData 数据库依赖 App Groups。升级为付费 Apple Developer 账号并开启 App Group 后即可打通数据。
 
 ## License
 
